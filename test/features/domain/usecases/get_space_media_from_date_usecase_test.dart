@@ -6,6 +6,9 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../../mocks/date_mock.dart';
+import '../../../mocks/space_media_entity_mock.dart';
+
 class MockSpaceMediaRepository extends Mock implements SpaceMediaRepository {}
 
 void main() {
@@ -16,15 +19,6 @@ void main() {
     repository = MockSpaceMediaRepository();
     usecase = GetSpaceMediaFromDateUsecase(repository);
   });
-
-  const tSpaceMedia = SpaceMediaEntity(
-    description: 'Teste descricao',
-    mediaType: 'image',
-    title: 'lala',
-    mediaUrl: 'url teste',
-  );
-
-  final tDate = DateTime(2022, 02, 02);
 
   test('Should get space media for a given date from the repository', () async {
     // Arrange
