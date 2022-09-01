@@ -6,6 +6,7 @@ import 'package:clean_architecture_nasa/features/data/repositories/space_media_r
 import 'package:clean_architecture_nasa/features/domain/repositories/space_media_repository.dart';
 import 'package:clean_architecture_nasa/features/domain/usecases/get_space_media_from_date_usecase.dart';
 import 'package:clean_architecture_nasa/features/presentation/stores/home_store.dart';
+import 'package:clean_architecture_nasa/features/presentation/stores/space_media_store.dart';
 import 'package:get_it/get_it.dart';
 
 class Inject {
@@ -24,6 +25,7 @@ class Inject {
     getIt.registerSingleton<GetSpaceMediaFromDateUsecase>(
         GetSpaceMediaFromDateUsecase(getIt()));
     // Stores (Controllers)
-    getIt.registerFactory<HomeStore>(() => HomeStore(getIt()));
+    getIt.registerFactory<SpaceMediaStore>(() => SpaceMediaStore(getIt()));
+    getIt.registerFactory<HomeStore>(() => HomeStore());
   }
 }

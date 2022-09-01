@@ -1,10 +1,11 @@
 import 'package:clean_architecture_nasa/core/inject/inject.dart';
 import 'package:clean_architecture_nasa/features/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
   Inject.init();
-  runApp(const MyApp());
+  initializeDateFormatting().then((_) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: const Color.fromRGBO(65, 35, 86, 1),
+        ),
       ),
       home: HomePage(),
     );

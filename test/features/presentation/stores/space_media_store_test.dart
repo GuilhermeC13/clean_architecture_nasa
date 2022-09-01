@@ -1,11 +1,9 @@
-import 'package:clean_architecture_nasa/core/inject/inject.dart';
 import 'package:clean_architecture_nasa/core/usecase/errors/failures.dart';
 import 'package:clean_architecture_nasa/features/domain/entities/space_media_entity.dart';
 import 'package:clean_architecture_nasa/features/domain/usecases/get_space_media_from_date_usecase.dart';
-import 'package:clean_architecture_nasa/features/presentation/stores/home_store.dart';
+import 'package:clean_architecture_nasa/features/presentation/stores/space_media_store.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get_it/get_it.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../mocks/date_mock.dart';
@@ -15,12 +13,12 @@ class GetSpaceMediaFromDateUsecaseMock extends Mock
     implements GetSpaceMediaFromDateUsecase {}
 
 void main() {
-  late HomeStore homeStore;
+  late SpaceMediaStore homeStore;
   late GetSpaceMediaFromDateUsecase usecase;
 
   setUp(() {
     usecase = GetSpaceMediaFromDateUsecaseMock();
-    homeStore = HomeStore(usecase);
+    homeStore = SpaceMediaStore(usecase);
   });
 
   test('should return a SpaceMedia from the usecase', () async {
